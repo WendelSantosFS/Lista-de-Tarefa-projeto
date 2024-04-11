@@ -1,0 +1,48 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: sans-serif;
+}
+.completed {
+    text-decoration: line-through;
+}
+
+
+body {
+    background-image: url('pexels-francesco-ungaro-1671325.jpg');
+    background-size: cover;
+    background-repeat: no-repeat;
+    color: #0ca4b8;
+    display: flex;
+    justify-content: center;
+}
+
+#formLista {
+    background: #fff;
+    min-height: 500px;
+    margin-top: 20px;
+    padding: 20px;
+    border-radius: 15px;
+}
+.formulario input {
+    padding: 7px;
+    width: 400px;
+}
+
+#what-task input[type="text"] {
+    font-size: 15pt;
+}
+#what-task {
+    border-bottom: 2px solid #0ca4b8;
+}
+
+
+
+.divMainTask {
+    display: flex;
+    margin-top: 20px;
+}
+.divMainTask button {
+    margin: 0 5px;
+}
