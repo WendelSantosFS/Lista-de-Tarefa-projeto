@@ -10,7 +10,7 @@
 
 
 body {
-    background-image: url('pexels-francesco-ungaro-1671325.jpg');
+    background-image: url('./img/pexels-francesco-ungaro-1671325.jpg');
     background-size: cover;
     background-repeat: no-repeat;
     color: #0ca4b8;
@@ -35,13 +35,27 @@ body {
 }
 #what-task {
     border-bottom: 2px solid #0ca4b8;
+    margin: 10px 0;
+    padding: 30px 0;
+}
+#what-task h1 {
+    margin-top: -30px;
+    margin-bottom: 20px;
 }
 
 
 
 .divMainTask {
     display: flex;
+    justify-content: space-between;
     margin-top: 20px;
+}
+.divMainTask div {
+    padding: 10px 0 10px 0;
+}
+.divMainTask p {
+    padding: 10px 0 10px 0;
+    width: 400px;
 }
 .divMainTask button {
     margin: 0 5px;
