@@ -11,16 +11,17 @@ const saveTask = (text) => {
     const pTasks = document.createElement('p')
     pTasks.innerText = text
 
+
     const btnComplete = document.createElement('button')
-    btnComplete.textContent = "completeTask"
+    btnComplete.textContent = "complete"
     btnComplete.classList.add("completeTask")
 
     const btnRemove = document.createElement('button')
-    btnRemove.textContent = "removeTask"
+    btnRemove.textContent = "remove"
     btnRemove.classList.add("removeTask")
 
     const btnEdit = document.createElement('button')
-    btnEdit.textContent = "editTask"
+    btnEdit.textContent = "edit"
     btnEdit.classList = "editTask"
 
     divMainTasks.append(pTasks, btnComplete, btnRemove, btnEdit)
@@ -29,8 +30,6 @@ const saveTask = (text) => {
     inputForm.value = ''
     inputForm.focus()
 }
-
-
 
 
 document.getElementById('addTask').addEventListener("click", (ev) => {
@@ -50,12 +49,18 @@ document.getElementById('addTask').addEventListener("click", (ev) => {
 
 
 
-
-
 document.addEventListener('click', (ev)=> {
+    ev.preventDefault()
 
     const targetEl = ev.target
     const parentEl = targetEl.closest('div') //Pega o elemento mais proximo do "targetEl"
 
-    console.log(parentEl)
+
+    if (targetEl.classList == "completeTask") {
+        parentEl.classList.toggle('completed')
+    } else if (targetEl.classList == "removeTask") {
+        parentEl.remove()
+    } else if (targetEl.classList == "editTask") {
+        console.log('Tarefa Editada!')
+    }
 })
