@@ -1,5 +1,11 @@
 
 let inputForm = document.getElementById('taskLista')
+let inputEdit = document.querySelector('#edit-input')
+const divWhatTask = document.getElementById('what-task')
+const formFirst = document.getElementById('formLista')
+const formSecond = document.getElementById('edit-form')
+
+let oldInputValue;
 
 //Funções
 
@@ -10,7 +16,6 @@ const saveTask = (text) => {
     divMainTasks.classList.add("divMainTask")
     const pTasks = document.createElement('p')
     pTasks.innerText = text
-
 
     const btnComplete = document.createElement('button')
     btnComplete.textContent = "complete"
@@ -47,6 +52,24 @@ document.getElementById('addTask').addEventListener("click", (ev) => {
    
 })
 
+const toggleForms = () => {
+    formFirst.classList.toggle('noneDisplay')
+    formSecond.classList.toggle('noneDisplay')
+}
+
+const updateTodo = (text)=> {
+
+    const todos = document.querySelectorAll('.divMainTask')
+
+    todos.forEach((todo) => {
+        let todoTitle = todo.querySelector("p");
+
+        if (todoTitle.innerText === oldInputValue) {
+            todoTitle.innerText = text;
+        }
+    })
+
+}
 
 
 document.addEventListener('click', (ev)=> {
@@ -54,13 +77,42 @@ document.addEventListener('click', (ev)=> {
 
     const targetEl = ev.target
     const parentEl = targetEl.closest('div') //Pega o elemento mais proximo do "targetEl"
+    let todoTitle;
 
-
-    if (targetEl.classList == "completeTask") {
-        parentEl.classList.toggle('completed')
-    } else if (targetEl.classList == "removeTask") {
-        parentEl.remove()
-    } else if (targetEl.classList == "editTask") {
-        console.log('Tarefa Editada!')
+    if (parentEl && parentEl.querySelector('p')) {
+        todoTitle = parentEl.querySelector('p').innerText;
     }
+
+    if (targetEl.classList.contains("completeTask")) {
+        parentEl.classList.toggle('completed');
+    } else if (targetEl.classList.contains("removeTask")) {
+        parentEl.remove();
+    } else if (targetEl.classList.contains("editTask")) {
+        toggleForms();
+
+        inputEdit.value = todoTitle
+        oldInputValue = todoTitle
+    }
+})
+
+
+document.getElementById('cancel-edit-btn').addEventListener('click', (ev) => {
+    ev.preventDefault()
+
+    toggleForms()
+})
+
+
+document.querySelector('#btnEdited').addEventListener('click', (ev) => {
+    
+    ev.preventDefault()
+
+    const editInputValue = inputEdit.value
+
+    if (editInputValue) {
+        updateTodo(editInputValue)
+    }
+
+    toggleForms()
+
 })
