@@ -22,13 +22,34 @@ body {
     justify-content: center;
 }
 
+
 #formLista {
     background: #fff;
+    border-radius: 15px;
     min-height: 500px;
     margin-top: 20px;
     padding: 20px;
-    border-radius: 15px;
+    
 }
+#edit-form {
+    background: #fff;
+    border-radius: 15px;
+    min-height: 300px;
+    width: 600px;
+    margin-top: 20px;
+    padding: 20px;
+    flex: auto;
+}
+#edit-form p {
+    font-size: 25px;
+}
+#edit-form input {
+    width: 70%;
+    padding: 3px;
+    font-size: 20px;
+    margin: 0 0 5px 0;
+}
+
 .formulario input {
     padding: 7px;
     width: 400px;
