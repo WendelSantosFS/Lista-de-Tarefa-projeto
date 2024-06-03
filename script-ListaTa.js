@@ -70,7 +70,7 @@ const updateTodo = (text)=> {
     })
 
 }
-
+//Comentário do Commit 03/06/2024
 
 document.addEventListener('click', (ev)=> {
     ev.preventDefault()
